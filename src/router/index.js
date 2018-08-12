@@ -149,6 +149,21 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/account',
+    component: Layout,
+    redirect: '/account/changePW',
+    name: 'Account',
+    meta: { title: '商品管理', icon: 'goods' },
+    children: [
+      {
+        path: 'changePW',
+        name: 'ChangePW',
+        component: () => import('@/views/table/index'),
+        meta: { title: '修改密码' }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
