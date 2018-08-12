@@ -122,6 +122,33 @@ export const constantRouterMap = [
     ]
   },
   {
+    path: '/goods',
+    component: Layout,
+    redirect: '/goods/list',
+    name: 'Goods',
+    meta: { title: '商品管理', icon: 'goods' },
+    children: [
+      {
+        path: 'platformGoodsList',
+        name: 'PlatformGoodsList',
+        component: () => import('@/views/table/index'),
+        meta: { title: '平台商品列表(SPU)' }
+      },
+      {
+        path: 'shopGoodsList',
+        name: 'shopGoodsList',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '店铺所有商品列表' }
+      },
+      {
+        path: 'goodsSort',
+        name: 'GoodsSort',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '商品分类' }
+      }
+    ]
+  },
+  {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
