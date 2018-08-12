@@ -2,6 +2,14 @@
   <el-menu class="navbar" mode="horizontal">
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
     <breadcrumb></breadcrumb>
+
+    <div class="message">
+      <svg-icon icon-class="cart"></svg-icon>
+      <el-badge :value="200" :max="99" class="item">
+        <svg-icon icon-class="bell"></svg-icon>
+      </el-badge>
+    </div>
+
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
         <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
@@ -18,6 +26,8 @@
         </el-dropdown-item>
       </el-dropdown-menu>
     </el-dropdown>
+
+
   </el-menu>
 </template>
 
@@ -66,6 +76,12 @@ export default {
     right: 90px;
     top: 16px;
     color: red;
+  }
+  .message {
+    height: 50px;
+    display: inline-block;
+    position: absolute;
+    right: 135px;
   }
   .avatar-container {
     height: 50px;
