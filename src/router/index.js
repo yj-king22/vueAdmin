@@ -124,7 +124,7 @@ export const constantRouterMap = [
   {
     path: '/goods',
     component: Layout,
-    redirect: '/goods/list',
+    redirect: '/goods/platformGoodsList',
     name: 'Goods',
     meta: { title: '商品管理', icon: 'goods' },
     children: [
@@ -151,15 +151,51 @@ export const constantRouterMap = [
   {
     path: '/account',
     component: Layout,
-    redirect: '/account/changePW',
-    name: 'Account',
-    meta: { title: '商品管理', icon: 'goods' },
     children: [
       {
-        path: 'changePW',
-        name: 'ChangePW',
+        path: 'index',
+        name: 'Account',
+        component: () => import('@/views/form/index'),
+        meta: { title: '账号设置', icon: 'setting' }
+      }
+    ]
+  },
+  {
+    path: '/userManager',
+    component: Layout,
+    redirect: '/userManager/create',
+    name: 'UserManager',
+    meta: { title: '用户管理', icon: 'manager' },
+    children: [
+      {
+        path: 'create',
+        name: 'Create',
         component: () => import('@/views/table/index'),
-        meta: { title: '修改密码' }
+        meta: { title: '创建用户' }
+      },
+      {
+        path: 'sellerSort',
+        name: 'SellerSort',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '卖家店铺分类' }
+      },
+      {
+        path: 'sellerRegion',
+        name: 'SellerRegion',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '卖家店铺区域' }
+      },
+      {
+        path: 'buyerList',
+        name: 'BuyerList',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '会员列表买家' }
+      },
+      {
+        path: 'sellerShops',
+        name: 'SellerShops',
+        component: () => import('@/views/tree/index'),
+        meta: { title: '卖家店铺列表' }
       }
     ]
   },
