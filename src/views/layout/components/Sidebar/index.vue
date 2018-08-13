@@ -1,7 +1,7 @@
 <template>
   <el-scrollbar wrapClass="scrollbar-wrapper">
     <div class="logo-wrapper">
-      <img class="logo" src="./logo.png" width="49" height="49" alt="">
+      <img class="logo" src="../../logo/logo.png" width="49" height="49" alt="">
       <span class="title">生活专送</span>
     </div>
     <el-menu

@@ -3,16 +3,20 @@
     <hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></hamburger>
     <breadcrumb></breadcrumb>
 
-    <div class="message">
-      <svg-icon icon-class="cart"></svg-icon>
-      <el-badge :value="200" :max="99" class="item">
-        <svg-icon icon-class="bell"></svg-icon>
-      </el-badge>
-    </div>
+    <ul class="message">
+      <li class="message-item">
+        <svg-icon icon-class="cart"></svg-icon>
+      </li>
+      <li class="message-item">
+        <el-badge :value="200" :max="99" class="item">
+          <svg-icon icon-class="bell"></svg-icon>
+        </el-badge>
+      </li>
+    </ul>
 
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
-        <img class="user-avatar" :src="avatar+'?imageView2/1/w/80/h/80'">
+        <img class="user-avatar" src="../logo/fruitslogo.png"><span class="user-name">生鲜配送</span>
         <i class="el-icon-caret-bottom"></i>
       </div>
       <el-dropdown-menu class="user-dropdown" slot="dropdown">
@@ -81,7 +85,17 @@ export default {
     height: 50px;
     display: inline-block;
     position: absolute;
-    right: 135px;
+    right: 165px;
+    list-style: none;
+    outline-style: none;
+    .message-item {
+      float: left;
+      width: 50px;
+      height: 100%;
+      margin-right: 25px;
+      padding-top: 10px;
+      text-align: center;
+    }
   }
   .avatar-container {
     height: 50px;
@@ -96,6 +110,14 @@ export default {
         width: 40px;
         height: 40px;
         border-radius: 10px;
+      }
+      .user-name {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        margin-left: 10px;
+        vertical-align: top;
+        font-size: 18px;
       }
       .el-icon-caret-bottom {
         position: absolute;
