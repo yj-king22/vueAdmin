@@ -4,6 +4,9 @@ import { getToken, setToken, removeToken } from '@/utils/auth'
 const user = {
   state: {
     token: getToken(),
+    uuid: '',
+    shop_id: '',
+    role: 0,
     name: '',
     avatar: '',
     roles: []
@@ -12,6 +15,15 @@ const user = {
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
+    },
+    SET_UUID: (state, uuid) => {
+      state.uuid = uuid
+    },
+    SET_SHOPID: (state, shop_id) => {
+      state.shop_id = shop_id
+    },
+    SET_ROLE: (state, role) => {
+      state.role = role
     },
     SET_NAME: (state, name) => {
       state.name = name
@@ -33,6 +45,9 @@ const user = {
           const data = response.data
           setToken(data.token)
           commit('SET_TOKEN', data.token)
+          commit('SET_UUID', data.uuid)
+          commit('SET_SHOPID', data.shop_id)
+          commit('SET_ROLE', data.role)
           resolve()
         }).catch(error => {
           reject(error)
@@ -43,13 +58,13 @@ const user = {
     // 获取用户信息
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
-        getInfo(state.token).then(response => {
+        getInfo(state.token, state.uuid, state.role).then(response => {
           const data = response.data
-          if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
-            commit('SET_ROLES', data.roles)
-          } else {
-            reject('getInfo: roles must be a non-null array !')
-          }
+          // if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
+          //   commit('SET_ROLES', data.roles)
+          // } else {
+          //   reject('getInfo: roles must be a non-null array !')
+          // }
           commit('SET_NAME', data.name)
           commit('SET_AVATAR', data.avatar)
           resolve(response)
