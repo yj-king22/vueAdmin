@@ -11,11 +11,15 @@ export function login(phone, password) {
   })
 }
 
-export function getInfo(token) {
+export function getInfo(token, uuid, id) {
   return request({
-    url: '/user/info',
-    method: 'get',
-    params: { token }
+    url: '/api/AdminMessage/messageDetails',
+    method: 'post',
+    data: {
+      token,
+      uuid,
+      id
+    }
   })
 }
 
