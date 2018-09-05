@@ -6,7 +6,11 @@ const user = {
   state: {
     token: getToken(),
     uuid: '',
+<<<<<<< HEAD
     shopId: '',
+=======
+    shop_id: '',
+>>>>>>> 20197a74b2ddd57dadaaa3d70a4696405152930b
     role: 0,
     name: '',
     avatar: '',
@@ -20,11 +24,19 @@ const user = {
     SET_UUID: (state, uuid) => {
       state.uuid = uuid
     },
+<<<<<<< HEAD
     SET_SHOPID: (state, shopId) => {
       state.token = shopId
     },
     SET_ROLE: (state, role) => {
       state.uuid = role
+=======
+    SET_SHOPID: (state, shop_id) => {
+      state.shop_id = shop_id
+    },
+    SET_ROLE: (state, role) => {
+      state.role = role
+>>>>>>> 20197a74b2ddd57dadaaa3d70a4696405152930b
     },
     SET_NAME: (state, name) => {
       state.name = name
@@ -50,7 +62,11 @@ const user = {
           // setRole(data.role)
           commit('SET_TOKEN', data.token)
           commit('SET_UUID', data.uuid)
+<<<<<<< HEAD
           commit('SET_SHOPID', data.shopId)
+=======
+          commit('SET_SHOPID', data.shop_id)
+>>>>>>> 20197a74b2ddd57dadaaa3d70a4696405152930b
           commit('SET_ROLE', data.role)
           resolve()
         }).catch(error => {
@@ -62,7 +78,11 @@ const user = {
     // 获取用户信息
     GetInfo({ commit, state }) {
       return new Promise((resolve, reject) => {
+<<<<<<< HEAD
         getInfo('5b63dad2859faA1533270738', 'ab82980d0-6334-59ca-bd2b-ff183e3af692', 1).then(response => {
+=======
+        getInfo(state.token, state.uuid, state.role).then(response => {
+>>>>>>> 20197a74b2ddd57dadaaa3d70a4696405152930b
           const data = response.data
           // if (data.roles && data.roles.length > 0) { // 验证返回的roles是否是一个非空数组
           //   commit('SET_ROLES', data.roles)
